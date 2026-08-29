@@ -1,0 +1,41 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * TankAlert pin-control placeholders.
+ *
+ * IMPORTANT: GPIO numbers are NOT assigned yet.
+ * After schematic review, set the pin numbers below and set status = "okay"
+ * on the relevant nodes in tankalert.overlay.
+ *
+ * Pin assignment checklist (update before enabling hardware):
+ *   - TANKALERT_PIN_ULTRASONIC_TRIG   : ultrasonic TRIG (GPIO bit-bang)
+ *   - TANKALERT_PIN_ULTRASONIC_ECHO   : ultrasonic ECHO (GPIO capture)
+ *   - TANKALERT_PIN_WATER_FLOW        : water-flow digital input
+ *   - TANKALERT_PIN_MAX17048_SDA      : MAX17048 I2C SDA
+ *   - TANKALERT_PIN_MAX17048_SCL      : MAX17048 I2C SCL
+ *   - TANKALERT_PIN_SENSOR_PWR_EN     : sensor rail enable (active level TBD)
+ *   - TANKALERT_PIN_STATUS_LED        : optional status LED (active level TBD)
+ *
+ * Kconfig mirrors these assignments in Kconfig.pins for runtime/C code access.
+ */
+
+/ {
+	chosen {
+		/* Override when a dedicated TankAlert UART is wired for the sensor */
+		/* zephyr,console = &uart0; */
+	};
+};
+
+/*
+ * Example pinctrl fragment (uncomment and fill after pin assignment):
+ *
+ * &pinctrl {
+ *     i2c0_default: i2c0_default {
+ *         group1 {
+ *             pinmux = <TANKALERT_PIN_MAX17048_SDA>,
+ *                      <TANKALERT_PIN_MAX17048_SCL>;
+ *             bias-pull-up;
+ *         };
+ *     };
+ * };
+ */

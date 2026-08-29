@@ -1,0 +1,15 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * TankAlert ESP32-WROOM board (PROCPU).
+ *
+ * Based on Espressif ESP32-DevKitC. Pin assignments for TankAlert-specific
+ * peripherals are defined in dts/tankalert.overlay and dts/tankalert-pinctrl.dtsi.
+ * Update those files once schematic GPIO routing is confirmed.
+ */
+
+/dts-v1/;
+
+#include <espressif/esp32/esp32_devkitc/esp32_devkitc_procpu.dts>
+#include "../../dts/tankalert-pinctrl.dtsi"
+#include "../../dts/tankalert.overlay"

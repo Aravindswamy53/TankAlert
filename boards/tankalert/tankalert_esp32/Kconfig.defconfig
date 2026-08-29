@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_TANKALERT_ESP32
+	select SOC_ESP32_PROCPU

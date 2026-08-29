@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: Apache-2.0
+
+menu "TankAlert hardware pins"
+
+config TANKALERT_PIN_ULTRASONIC_TRIG
+	int "Ultrasonic TRIG GPIO (-1 = unassigned)"
+	default -1
+	help
+	  GPIO number for the ultrasonic sensor TRIG line.
+	  Set to -1 until the schematic pin is confirmed.
+
+config TANKALERT_PIN_ULTRASONIC_ECHO
+	int "Ultrasonic ECHO GPIO (-1 = unassigned)"
+	default -1
+	help
+	  GPIO number for the ultrasonic sensor ECHO line.
+	  Set to -1 until the schematic pin is confirmed.
+	  If the sensor uses UART instead, leave unassigned and use UART.
+
+config TANKALERT_PIN_WATER_FLOW
+	int "Water flow GPIO input (-1 = unassigned)"
+	default -1
+	help
+	  GPIO number for the external water-flow ON/OFF input.
+
+config TANKALERT_PIN_MAX17048_SDA
+	int "MAX17048 I2C SDA GPIO (-1 = unassigned)"
+	default -1
+	help
+	  GPIO number for MAX17048 I2C SDA.
+
+config TANKALERT_PIN_MAX17048_SCL
+	int "MAX17048 I2C SCL GPIO (-1 = unassigned)"
+	default -1
+	help
+	  GPIO number for MAX17048 I2C SCL.
+
+config TANKALERT_PIN_SENSOR_PWR_EN
+	int "Sensor power enable GPIO (-1 = unassigned)"
+	default -1
+	help
+	  GPIO that enables the sensor power rail.
+
+config TANKALERT_PIN_STATUS_LED
+	int "Status LED GPIO (-1 = unassigned)"
+	default -1
+	help
+	  Optional status LED GPIO.
+
+endmenu

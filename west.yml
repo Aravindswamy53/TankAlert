@@ -1,0 +1,29 @@
+# TankAlert Zephyr west manifest
+# SPDX-License-Identifier: Apache-2.0
+#
+# Expected west workspace layout:
+#   <workspace>/
+#   ├── zephyr/     <- fetched by west update
+#   └── tankalert/  <- this repository (west manifest)
+#
+# Initialize from the workspace directory:
+#   west init -l tankalert
+#   west update
+#   west blobs fetch hal_espressif
+
+manifest:
+  version: 1.2
+
+  self:
+    path: tankalert
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v4.1.0
+      west-commands: scripts/west-commands.yml
+      import: true

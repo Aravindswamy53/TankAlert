@@ -1,0 +1,71 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * TankAlert application DeviceTree overlay.
+ *
+ * Peripheral nodes are declared here but left disabled until GPIO/I2C pins
+ * are confirmed on the custom PCB. See dts/tankalert-pinctrl.dtsi and
+ * Kconfig.pins for the single place to assign pin numbers.
+ */
+
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+	aliases {
+		tankalert-ultrasonic = &ultrasonic;
+		tankalert-water-flow = &water_flow;
+		tankalert-max17048 = &max17048;
+		tankalert-sensor-pwr = &sensor_pwr;
+		tankalert-status-led = &status_led;
+	};
+
+	/*
+	 * Ultrasonic level sensor (JSN-SR04T candidate).
+	 * Driver will use Zephyr GPIO or UART APIs depending on final wiring.
+	 */
+	ultrasonic: ultrasonic {
+		compatible = "tankalert,ultrasonic-placeholder";
+		status = "disabled";
+		/* trig-gpios = <&gpio0 TANKALERT_PIN_ULTRASONIC_TRIG GPIO_ACTIVE_HIGH>; */
+		/* echo-gpios = <&gpio0 TANKALERT_PIN_ULTRASONIC_ECHO GPIO_ACTIVE_HIGH>; */
+	};
+
+	/* External water-flow switch / pulse input */
+	water_flow: water_flow {
+		compatible = "gpio-keys";
+		status = "disabled";
+		/* flow-gpios = <&gpio0 TANKALERT_PIN_WATER_FLOW (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; */
+	};
+
+	/* Sensor power enable (ultrasonic + front-end rails) */
+	sensor_pwr: sensor_pwr {
+		compatible = "gpio-leds";
+		status = "disabled";
+		/* pwr-gpios = <&gpio0 TANKALERT_PIN_SENSOR_PWR_EN GPIO_ACTIVE_HIGH>; */
+	};
+
+	/* Optional board status LED */
+	status_led: status_led {
+		compatible = "gpio-leds";
+		status = "disabled";
+		/* led-gpios = <&gpio0 TANKALERT_PIN_STATUS_LED GPIO_ACTIVE_LOW>; */
+	};
+};
+
+/*
+ * MAX17048 fuel gauge on I2C.
+ * Enable after SDA/SCL pins are assigned in tankalert-pinctrl.dtsi.
+ */
+&i2c0 {
+	status = "disabled";
+	/* Assign pinctrl in tankalert-pinctrl.dtsi, then uncomment:
+	 * pinctrl-0 = <&i2c0_default>;
+	 * pinctrl-names = "default";
+	 */
+
+	max17048: max17048@36 {
+		compatible = "maxim,max17048";
+		reg = <0x36>;
+		status = "disabled";
+	};
+};

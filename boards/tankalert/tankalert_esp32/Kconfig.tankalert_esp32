@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_TANKALERT_ESP32
+	bool "TankAlert ESP32-WROOM custom board"
+	select SOC_ESP32

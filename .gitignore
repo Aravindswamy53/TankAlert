@@ -1,0 +1,49 @@
+# Zephyr / west
+.west/
+build/
+build-*/
+modules/
+zephyr/
+bootloader/
+tools/
+deps/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.Python
+pip-log.txt
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+*.o
+*.a
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+
+# Credentials (never commit)
+**/wifi_credentials.conf
+**/secrets.conf
+.env
+
+# Local / developer-only
+doc/
+docs/
+software/
+tests/
+internal/

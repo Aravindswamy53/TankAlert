@@ -1,0 +1,6 @@
+board:
+  name: tankalert_esp32
+  full_name: TankAlert ESP32-WROOM
+  vendor: tankalert
+  socs:
+    - name: esp32

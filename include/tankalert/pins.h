@@ -1,0 +1,27 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * TankAlert GPIO pin assignments (compile-time).
+ *
+ * Pins default to -1 (unassigned). Set values via Kconfig once the
+ * schematic is finalized. See README.md "Hardware pin configuration".
+ */
+
+#ifndef TANKALERT_PINS_H_
+#define TANKALERT_PINS_H_
+
+#include <zephyr/kernel.h>
+
+#define TANKALERT_PIN_UNASSIGNED (-1)
+
+#define TANKALERT_PIN_ULTRASONIC_TRIG	CONFIG_TANKALERT_PIN_ULTRASONIC_TRIG
+#define TANKALERT_PIN_ULTRASONIC_ECHO	CONFIG_TANKALERT_PIN_ULTRASONIC_ECHO
+#define TANKALERT_PIN_WATER_FLOW	CONFIG_TANKALERT_PIN_WATER_FLOW
+#define TANKALERT_PIN_MAX17048_SDA	CONFIG_TANKALERT_PIN_MAX17048_SDA
+#define TANKALERT_PIN_MAX17048_SCL	CONFIG_TANKALERT_PIN_MAX17048_SCL
+#define TANKALERT_PIN_SENSOR_PWR_EN	CONFIG_TANKALERT_PIN_SENSOR_PWR_EN
+#define TANKALERT_PIN_STATUS_LED	CONFIG_TANKALERT_PIN_STATUS_LED
+
+#define TANKALERT_PIN_IS_ASSIGNED(pin) ((pin) >= 0)
+
+#endif /* TANKALERT_PINS_H_ */

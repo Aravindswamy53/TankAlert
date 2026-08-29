@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
+#
+# TankAlert board defaults for ESP32-WROOM (PROCPU target).
+
+CONFIG_SOC_ESP32_PROCPU=y
+
+# Console on UART0 (ESP32-DevKitC default)
+CONFIG_CONSOLE=y
+CONFIG_UART_CONSOLE=y
+CONFIG_SERIAL=y
+
+# Logging
+CONFIG_LOG=y
+CONFIG_LOG_DEFAULT_LEVEL=3
+
+# Main loop stack
+CONFIG_MAIN_STACK_SIZE=4096
